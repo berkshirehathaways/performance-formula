@@ -157,3 +157,12 @@ js/
 ## 배포
 
 **Publish 탭에서 퍼블리시** — 원클릭으로 라이브 사이트 배포
+
+---
+
+## Fork Docs (핸드오프/변경이력)
+
+- `IMPROVEMENT_PLAN.md` — 개선 계획 + Devil's Advocate 검토 기준
+- `HANDOFF.md` — 작업 인수인계 문서 (현재 상태/리스크/다음 단계)
+- `CHANGELOG_FORK.md` — 포크 버전 변경 내역
+- `DECISIONS.md` — 왜 그렇게 바꿨는지에 대한 의사결정 로그
