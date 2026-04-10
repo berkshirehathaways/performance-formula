@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass — 나만의 퍼포먼스 시스템</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ── BACKGROUND GRADIENT ORBS ── -->
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+  <!-- ── APP SHELL ── -->
+  <div id="app">
+
+    <!-- HEADER -->
+    <header id="app-header">
+      <div class="logo">
+        <span class="logo-mark">◎</span>
+        <span class="logo-text">Compass</span>
+      </div>
+      <div class="header-right">
+        <div id="save-indicator" class="save-indicator" aria-live="polite"></div>
+        <button id="btn-restart" class="btn-ghost btn-sm" title="처음부터 다시 시작">↺ 초기화</button>
+      </div>
+    </header>
+
+    <!-- PROGRESS BAR -->
+    <div id="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div id="progress-fill"></div>
+      <div id="step-dots"></div>
+    </div>
+
+    <!-- STEP LABEL -->
+    <div id="step-label" class="step-label" aria-live="polite"></div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main id="stage">
+      <!-- Steps render here -->
+    </main>
+
+    <!-- NAVIGATION -->
+    <nav id="nav-bar">
+      <button id="btn-back" class="btn-nav btn-back" aria-label="이전 단계">
+        <span class="nav-icon">←</span>
+        <span class="nav-text">이전</span>
+      </button>
+      <div id="step-counter" class="step-counter"></div>
+      <button id="btn-next" class="btn-nav btn-primary" aria-label="다음 단계">
+        <span class="nav-text">계속하기</span>
+        <span class="nav-icon">→</span>
+      </button>
+    </nav>
+
+  </div><!-- /#app -->
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- RESTART CONFIRM MODAL -->
+  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <p id="modal-title" class="modal-title">정말 처음부터 시작할까요?</p>
+      <p class="modal-body">저장된 모든 내용이 사라집니다.</p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn-ghost">취소</button>
+        <button id="modal-confirm" class="btn-danger">초기화</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS (order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════════
+   COMPASS — animations.css
+   Step transitions, micro-interactions, reveals
+═══════════════════════════════════════════════ */
+
+/* ── STEP ENTER / EXIT ───────────────────────── */
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stepOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes stepBack {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-entering {
+  animation: stepIn var(--dur-slow) var(--ease-out) both;
+}
+
+.step-exiting {
+  animation: stepOut var(--dur-mid) var(--ease-out) both;
+  pointer-events: none;
+}
+
+.step-back-entering {
+  animation: stepBack var(--dur-slow) var(--ease-out) both;
+}
+
+/* ── STAGGERED CHILDREN ──────────────────────── */
+.step-screen > * {
+  animation: stepIn var(--dur-slow) var(--ease-out) both;
+}
+.step-screen > *:nth-child(1) { animation-delay: 0ms; }
+.step-screen > *:nth-child(2) { animation-delay: 60ms; }
+.step-screen > *:nth-child(3) { animation-delay: 120ms; }
+.step-screen > *:nth-child(4) { animation-delay: 180ms; }
+.step-screen > *:nth-child(5) { animation-delay: 240ms; }
+.step-screen > *:nth-child(6) { animation-delay: 300ms; }
+.step-screen > *:nth-child(7) { animation-delay: 360ms; }
+.step-screen > *:nth-child(8) { animation-delay: 420ms; }
+
+/* ── FADE IN ─────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.anim-fade-in    { animation: fadeIn var(--dur-mid) var(--ease-out) both; }
+.anim-fade-up    { animation: fadeInUp var(--dur-slow) var(--ease-out) both; }
+.anim-fade-scale { animation: fadeInScale var(--dur-slow) var(--ease-spring) both; }
+
+/* ── MICRO-FEEDBACK PULSE ────────────────────── */
+@keyframes pulseFeedback {
+  0%   { box-shadow: 0 0 0 0 rgba(78,205,196,0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(78,205,196,0); }
+  100% { box-shadow: 0 0 0 0 rgba(78,205,196,0); }
+}
+
+.pulse-once {
+  animation: pulseFeedback 0.6s ease-out;
+}
+
+/* ── SLIDER FILL GLOW ────────────────────────── */
+@keyframes sliderGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(124,111,255,0.5); }
+  50%  { box-shadow: 0 0 14px 4px rgba(124,111,255,0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(124,111,255,0); }
+}
+
+/* ── BUTTON RIPPLE ───────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--dur-fast);
+  pointer-events: none;
+}
+
+.btn-primary:active::after {
+  opacity: 1;
+}
+
+/* ── PROGRESS BAR PULSE ──────────────────────── */
+@keyframes progressPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+#progress-fill.updating {
+  animation: progressPulse 0.4s ease-in-out;
+}
+
+/* ── CARD REVEAL ─────────────────────────────── */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.leverage-card {
+  animation: cardReveal var(--dur-slow) var(--ease-out) both;
+}
+.leverage-card:nth-child(1) { animation-delay: 80ms; }
+.leverage-card:nth-child(2) { animation-delay: 160ms; }
+.leverage-card:nth-child(3) { animation-delay: 240ms; }
+.leverage-card:nth-child(4) { animation-delay: 320ms; }
+
+/* ── PHASE CARD ENTRANCE ─────────────────────── */
+.phase-card {
+  animation: fadeInUp var(--dur-slow) var(--ease-out) both;
+}
+.phase-card:nth-child(1) { animation-delay: 100ms; }
+.phase-card:nth-child(2) { animation-delay: 200ms; }
+.phase-card:nth-child(3) { animation-delay: 300ms; }
+
+/* ── NORTH STAR GLOW ─────────────────────────── */
+@keyframes northStarPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124,111,255,0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124,111,255,0.3), 0 0 80px rgba(78,205,196,0.1);
+  }
+}
+
+.north-star-box {
+  animation: northStarPulse 4s ease-in-out infinite;
+}
+
+/* ── SUMMARY FACTOR BARS ─────────────────────── */
+@keyframes barGrow {
+  from { width: 0; }
+}
+
+.factor-chip-fill {
+  animation: barGrow 0.8s var(--ease-out) both;
+}
+.factor-chip:nth-child(1) .factor-chip-fill { animation-delay: 100ms; }
+.factor-chip:nth-child(2) .factor-chip-fill { animation-delay: 180ms; }
+.factor-chip:nth-child(3) .factor-chip-fill { animation-delay: 260ms; }
+.factor-chip:nth-child(4) .factor-chip-fill { animation-delay: 340ms; }
+.factor-chip:nth-child(5) .factor-chip-fill { animation-delay: 420ms; }
+.factor-chip:nth-child(6) .factor-chip-fill { animation-delay: 500ms; }
+.factor-chip:nth-child(7) .factor-chip-fill { animation-delay: 580ms; }
+
+/* ── TOAST SLIDE ─────────────────────────────── */
+.toast.show {
+  animation: fadeInUp var(--dur-mid) var(--ease-out) both;
+}
+
+/* ── ORB FLOAT ───────────────────────────────── */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -15px) scale(1.05); }
+  66%       { transform: translate(-10px, 10px) scale(0.97); }
+}
+
+.orb-1 { animation: orbFloat 20s ease-in-out infinite; }
+.orb-2 { animation: orbFloat 25s ease-in-out infinite reverse; }
+
+/* ── CONNECTOR LINE GROW ─────────────────────── */
+@keyframes lineGrow {
+  from { height: 0; opacity: 0; }
+  to   { height: 28px; opacity: 1; }
+}
+
+.connector-line {
+  animation: lineGrow 0.4s var(--ease-out) 0.4s both;
+}
+
+/* ── TYPING CURSOR (optional headline effect) ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '|';
+  color: var(--c-accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ── DRIVER CHIP REVEAL ──────────────────────── */
+.driver-chip {
+  animation: fadeInScale var(--dur-slow) var(--ease-spring) both;
+}
+.driver-chip:nth-child(1) { animation-delay: 200ms; }
+.driver-chip:nth-child(2) { animation-delay: 260ms; }
+.driver-chip:nth-child(3) { animation-delay: 320ms; }
+.driver-chip:nth-child(4) { animation-delay: 380ms; }
+.driver-chip:nth-child(5) { animation-delay: 440ms; }
+.driver-chip:nth-child(6) { animation-delay: 500ms; }
+.driver-chip:nth-child(7) { animation-delay: 560ms; }
+
+/* ── SIGNAL ITEM REVEAL ──────────────────────── */
+.signal-item {
+  animation: fadeInUp var(--dur-slow) var(--ease-out) both;
+}
+.signal-item:nth-child(1) { animation-delay: 400ms; }
+.signal-item:nth-child(2) { animation-delay: 460ms; }
+.signal-item:nth-child(3) { animation-delay: 520ms; }
+
+/* ── WELCOME FEATURE CHIPS ───────────────────── */
+.wf-item {
+  animation: fadeInScale var(--dur-slow) var(--ease-spring) both;
+}
+.wf-item:nth-child(1) { animation-delay: 200ms; }
+.wf-item:nth-child(2) { animation-delay: 300ms; }
+.wf-item:nth-child(3) { animation-delay: 400ms; }
+
+/* ── REDUCE MOTION ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
