@@ -166,3 +166,19 @@ js/
 - `HANDOFF.md` — 작업 인수인계 문서 (현재 상태/리스크/다음 단계)
 - `CHANGELOG_FORK.md` — 포크 버전 변경 내역
 - `DECISIONS.md` — 왜 그렇게 바꿨는지에 대한 의사결정 로그
+
+---
+
+## 공개 저장소 안내 (Public Notice)
+- 이 저장소는 공개/포크 친화적으로 운영됩니다.
+- 민감정보(토큰, 비밀번호, 개인식별정보, 내부문서)는 커밋하지 마세요.
+- 보안 점검 절차는 `SECURITY.md`를 확인해주세요.
+
+## 포크 & 기여 가이드
+1. 우측 상단 `Fork`로 본인 저장소에 복제
+2. 브랜치 생성 후 변경 (`feat/...`, `fix/...` 권장)
+3. `node --check js/*.js`로 기본 검증
+4. PR 생성 시 `.github/PULL_REQUEST_TEMPLATE.md` 체크리스트 준수
+
+## 공개 공지문
+- 외부 공유용 문구는 `PUBLIC_RELEASE_MESSAGE.md`에 복붙 가능한 형태로 제공됩니다.

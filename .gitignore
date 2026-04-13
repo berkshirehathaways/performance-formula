@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build artifacts
+node_modules/
+dist/
+build/
+coverage/
+
+# Runtime/local data
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+
+# Local app/session artifacts
+.omx/
+
+# Misc
+*.swp
+*.swo

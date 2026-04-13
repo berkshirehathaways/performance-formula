@@ -4,7 +4,7 @@
 이 문서는 포크 버전의 변경 배경, 현재 상태, 운영 리스크를 빠르게 넘겨주기 위한 인수인계 문서다.
 
 ## 현재 기준점
-- 작업 디렉터리: `/Users/stevenshin/performance-coach-fork`
+- 작업 디렉터리: `performance-coach-fork`
 - 최근 커밋: `b5b60db`
 - 검증 상태: `node --check js/*.js` 통과
 
